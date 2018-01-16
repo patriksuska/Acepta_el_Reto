@@ -34,6 +34,7 @@ public class Tendencia_lado_oscuro {
         
         // Para cada caso
         for (j=0;j<cant;j++){
+            cont=0;
             char[] resultado=Integer.toString(v[j],5).toCharArray();
             for(y=0;y<resultado.length;y++){
             
@@ -42,6 +43,7 @@ public class Tendencia_lado_oscuro {
                         cont++;
                     }
             }
+            System.out.println(resultado);
             if (cont>=2)
             {
                 System.out.println("SI");
