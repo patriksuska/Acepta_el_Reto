@@ -18,13 +18,13 @@ public class Organizar_garajes {
 
     public static boolean resuelveCaso(int[] hangar, int[] naves) {
         //mira si es posible entrar naves en el hangar
-        // primero dime gangar
-        dimehangar(hangar);
-        // despues lleganave
+        // primero dime hangar
+        int posicion=dimehangar(hangar);
         // antes de todo comparar si entra o no
         for (int i = 0; i < hangar.length; i++) {
-            if ((lleganave(hangar, tamanonaves)) == true) {
-                hangar[i] = hangar[i] - naves[i];
+            // despues lleganave
+            if ((lleganave(hangar,naves[i]))) {
+                hangar[posicion] = hangar[posicion] - naves[i];
             }
         }
         return true;
