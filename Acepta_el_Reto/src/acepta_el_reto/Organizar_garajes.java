@@ -19,8 +19,14 @@ public class Organizar_garajes {
     public static boolean resuelveCaso(int[] hangar, int[] naves) {
         //mira si es posible entrar naves en el hangar
         // primero dime gangar
+        dimehangar(hangar);
         // despues lleganave
         // antes de todo comparar si entra o no
+        for (int i = 0; i < hangar.length; i++) {
+            if ((lleganave(hangar, tamanonaves)) == true) {
+                hangar[i] = hangar[i] - naves[i];
+            }
+        }
         return true;
     }
 
@@ -49,17 +55,16 @@ public class Organizar_garajes {
         Scanner sc = new Scanner(System.in);
         int hangares = 1;
         int naves;
-       
 
-        while ((hangares = sc.nextInt()) != 0) {        
-            
+        while ((hangares = sc.nextInt()) != 0) {
+
             // procesamos hangares
             int[] hangar = new int[hangares];
             for (int i = 0; i < hangares; i++) {
                 int tamano = sc.nextInt();
                 hangar[i] = tamano;//guardo todos los hangares con sus tamaños en un vector
             }
-            
+
             // procesamos naves
             naves = sc.nextInt();//cantidad naves
             int[] nave = new int[naves];
@@ -67,13 +72,14 @@ public class Organizar_garajes {
                 int tamanonaves = sc.nextInt();
                 nave[j] = tamanonaves;//guardo todas las naves en un vector
             }
-            
+
             // resolver caso
-            boolean resultado= resuelveCaso(hangar,nave);
-            if(resultado==true)
-            System.out.println("SI");
-            else
+            boolean resultado = resuelveCaso(hangar, nave);
+            if (resultado == true) {
+                System.out.println("SI");
+            } else {
                 System.out.println("NO");
+            }
         }
     }
 }
