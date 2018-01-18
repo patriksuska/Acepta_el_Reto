@@ -20,6 +20,7 @@ public class Tendencia_lado_oscuro {
         // Cuantos casos de prueba
         Scanner sc=new Scanner (System.in);
         int cant=sc.nextInt();
+        sc.nextLine();
         int num;
         int y;
         int j;
@@ -43,8 +44,8 @@ public class Tendencia_lado_oscuro {
                         cont++;
                     }
             }
-            System.out.println(resultado);
-            if (cont>=2)
+            
+            if (cont>1)
             {
                 System.out.println("SI");
             }
