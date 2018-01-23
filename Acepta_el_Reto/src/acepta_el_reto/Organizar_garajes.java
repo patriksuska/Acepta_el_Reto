@@ -13,21 +13,23 @@ import java.util.Scanner;
  */
 public class Organizar_garajes {
 
-    static int indice;
+   
     static int p;
 
-    public static boolean resuelveCaso(int[] hangar, int[] naves) {
+    public static boolean resuelveCaso(int[] hangar, int[] nave) {
         //mira si es posible entrar naves en el hangar
         // primero dime hangar
         int posicion=dimehangar(hangar);
         // antes de todo comparar si entra o no
         for (int i = 0; i < hangar.length; i++) {
             // despues lleganave
-            if ((lleganave(hangar,naves[i]))) {
-                hangar[posicion] = hangar[posicion] - naves[i];
+            if ((lleganave(hangar,nave[i]))) {
+                hangar[posicion] = hangar[posicion] - nave[i];
             }
+            else 
+                return false;
         }
-        return true;
+       return true;
     }
 
     public static boolean lleganave(int[] hangar, int tamanonaves) {
@@ -40,37 +42,38 @@ public class Organizar_garajes {
     }
 
     public static int dimehangar(int[] hangar) {
-        indice = Integer.MIN_VALUE;
+       int indice = Integer.MIN_VALUE;
         for (int i = 0; i < hangar.length; i++) {
             if (hangar[i] > indice) {
                 indice = hangar[i];
                 p = i;
             }
         }
-
         return p;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int hangares = 1;
-        int naves;
-
+        int hangares=0;
+        int naves=0;
+        int[] hangar = new int[hangares];
+        int[] nave = new int[naves];
+        System.out.println("hola");
         while ((hangares = sc.nextInt()) != 0) {
-
+            sc.nextLine();
+            System.out.println("hola");
             // procesamos hangares
-            int[] hangar = new int[hangares];
+            
             for (int i = 0; i < hangares; i++) {
-                int tamano = sc.nextInt();
-                hangar[i] = tamano;//guardo todos los hangares con sus tamaños en un vector
+                hangar[i] = sc.nextInt();//guardo todos los hangares con sus tamaños en un vector
             }
 
             // procesamos naves
+            System.out.println("hola");
             naves = sc.nextInt();//cantidad naves
-            int[] nave = new int[naves];
-            for (int j = 0; j < naves; j++) {
-                int tamanonaves = sc.nextInt();
-                nave[j] = tamanonaves;//guardo todas las naves en un vector
+            
+            for (int j = 0; j < naves; j++) {           
+                nave[j] = sc.nextInt();//guardo todas las naves en un vector
             }
 
             // resolver caso
