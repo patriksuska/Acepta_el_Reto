@@ -57,27 +57,19 @@ public class Organizar_garajes {
         Scanner sc = new Scanner(System.in);
         int hangares=0;
         int naves=0;
-        
-        
-        System.out.println("hola");
         while ((hangares = sc.nextInt()) != 0) {
             sc.nextLine();
             int[] hangar = new int[hangares];
-            System.out.println("hola");
-            // procesamos hangares
-            
+            // procesamos hangares            
             for (int i = 0; i < hangares; i++) {
                 hangar[i] = sc.nextInt();//guardo todos los hangares con sus tamaños en un vector
             }
-
             // procesamos naves
-            System.out.println("hola");
             naves = sc.nextInt();//cantidad naves
             int[] nave = new int[naves];
             for (int j = 0; j < naves; j++) {           
                 nave[j] = sc.nextInt();//guardo todas las naves en un vector
             }
-
             // resolver caso
             boolean resultado = resuelveCaso(hangar, nave);
             if (resultado == true) {
