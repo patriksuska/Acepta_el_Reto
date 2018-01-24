@@ -21,10 +21,9 @@ public class Organizar_garajes {
         // primero dime hangar
         int posicion=dimehangar(hangar);
         // antes de todo comparar si entra o no
-        for (int i = 0; i < hangar.length; i++) {
+        for (int i = 0; i < nave.length; i++) {
             // despues lleganave
-            if ((lleganave(hangar,nave[i]))) {
-                hangar[posicion] = hangar[posicion] - nave[i];
+            if (lleganave(hangar,nave[i])) {
             }
             else 
                 return false;
@@ -37,12 +36,14 @@ public class Organizar_garajes {
         if (hangar[dimehangar(hangar)] < tamanonaves) {
             return false;
         } else {
+            hangar[dimehangar(hangar)]=hangar[dimehangar(hangar)]-tamanonaves;
             return true;
         }
     }
 
     public static int dimehangar(int[] hangar) {
        int indice = Integer.MIN_VALUE;
+       p=0;
         for (int i = 0; i < hangar.length; i++) {
             if (hangar[i] > indice) {
                 indice = hangar[i];
@@ -56,11 +57,12 @@ public class Organizar_garajes {
         Scanner sc = new Scanner(System.in);
         int hangares=0;
         int naves=0;
-        int[] hangar = new int[hangares];
-        int[] nave = new int[naves];
+        
+        
         System.out.println("hola");
         while ((hangares = sc.nextInt()) != 0) {
             sc.nextLine();
+            int[] hangar = new int[hangares];
             System.out.println("hola");
             // procesamos hangares
             
@@ -71,7 +73,7 @@ public class Organizar_garajes {
             // procesamos naves
             System.out.println("hola");
             naves = sc.nextInt();//cantidad naves
-            
+            int[] nave = new int[naves];
             for (int j = 0; j < naves; j++) {           
                 nave[j] = sc.nextInt();//guardo todas las naves en un vector
             }
