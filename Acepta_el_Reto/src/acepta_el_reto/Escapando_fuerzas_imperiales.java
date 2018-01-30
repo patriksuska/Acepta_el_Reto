@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Escapando_fuerzas_imperiales {
     public static boolean hayCamino(char[][] matriz, int i, int j) {
         
-        if(matriz[i][j]=='F'){
+       /* if(matriz[i][j]=='F'){
             return true;
         }
         else
@@ -52,8 +52,38 @@ public class Escapando_fuerzas_imperiales {
                                 }
                         }
                 }        
-        }
-            return false;
+        }*/
+       int filas=matriz.length;
+       int columnas=matriz[0].length;
+       if (i<0 || j<0 || i>=filas || j>=columnas)
+       {
+           return false;
+       }
+       if (matriz[i][j]=='.' || matriz[i][j]=='S')
+       {
+           matriz[i][j]='*';
+           if (hayCamino(matriz,i,j+1))
+           {
+               return true;
+           }
+           if(hayCamino(matriz,i,j-1))
+           {
+               return true;
+           }
+           else
+           {
+               return false;
+           }
+       }
+       if (matriz[i][j]=='*')
+       {
+           return false;
+       }
+       if (matriz[i][j]=='F')
+       {
+           return true;
+       }
+       return false;
     }
     
     /*public static void ImprimeMapa(char[][] mapa) {
@@ -68,25 +98,29 @@ public class Escapando_fuerzas_imperiales {
         Scanner sc = new Scanner(System.in);
         int x0=0, y0=0;
         do {
+            //procesar filas
             System.out.println("F: ");
             int filas = sc.nextInt();
+            //procesar columnas
             System.out.println("C: ");
             int colum = sc.nextInt();
             sc.nextLine();
+            //creo el mapa con las filas y columnas
             char[][] matriz = new char[filas][colum];
             for (int x=0;x<filas;x++){
+                //pido datos
                 String line = sc.nextLine();
-                sc.nextLine();
                 String linea =line.toUpperCase();
                 for(int y=0;y<colum;y++){
                     matriz[x][y]=linea.charAt(y);
+                    //compruebo que este la S
                     if(matriz[x][y]=='S'){
                         x0=x;
                         y0=y;
                     }
                 }
             }
-            //ImprimeMapa(matriz);
+            //Comprueba el resultado
             if(hayCamino(matriz,x0,y0)){
                 System.out.println("SI");
             }
