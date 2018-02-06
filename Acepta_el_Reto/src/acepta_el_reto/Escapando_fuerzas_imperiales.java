@@ -13,46 +13,6 @@ import java.util.Scanner;
  */
 public class Escapando_fuerzas_imperiales {
     public static boolean hayCamino(char[][] matriz, int i, int j) {
-        
-       /* if(matriz[i][j]=='F'){
-            return true;
-        }
-        else
-        {
-            hayCamino(matriz,i+1,j);
-            if(matriz[i][j]=='F')
-            {
-            return true;
-            }
-            else{
-                    hayCamino(matriz,i,j+1);
-                    if(matriz[i][j]=='F')
-                    {
-                    return true;
-                    }
-                    else{
-                            hayCamino(matriz,i,j+1);
-                            if(matriz[i][j]=='F')
-                            {
-                            return true;
-                            }
-                            else{
-                                    hayCamino(matriz,i-1,j);
-                                    if(matriz[i][j]=='F')
-                                    {
-                                    return true;
-                                    }
-                                    else{
-                                            hayCamino(matriz,i,j-1);
-                                            if(matriz[i][j]=='F')
-                                            {
-                                            return true;
-                                            } 
-                                        }
-                                }
-                        }
-                }        
-        }*/
        int filas=matriz.length;
        int columnas=matriz[0].length;
        if (i<0 || j<0 || i>=filas || j>=columnas)
@@ -67,6 +27,14 @@ public class Escapando_fuerzas_imperiales {
                return true;
            }
            if(hayCamino(matriz,i,j-1))
+           {
+               return true;
+           }
+           if(hayCamino(matriz,i+1,j))
+           {
+               return true;
+           }
+           if(hayCamino(matriz,i-1,j))
            {
                return true;
            }
@@ -85,24 +53,13 @@ public class Escapando_fuerzas_imperiales {
        }
        return false;
     }
-    
-    /*public static void ImprimeMapa(char[][] mapa) {
-        for(int i=0;i<mapa.length-1;i++){
-            for (int j=0;j<mapa[i].length-1;j++) {
-                System.out.print("" + mapa[i][j] + "\t");
-            }
-            System.out.print("\n");
-        }
-    }*/
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int x0=0, y0=0;
-        do {
+        while (sc.hasNext()) {
             //procesar filas
-            System.out.println("F: ");
             int filas = sc.nextInt();
             //procesar columnas
-            System.out.println("C: ");
             int colum = sc.nextInt();
             sc.nextLine();
             //creo el mapa con las filas y columnas
@@ -127,10 +84,7 @@ public class Escapando_fuerzas_imperiales {
             else{
                 System.out.println("NO");
             }
-        } while (sc.hasNext());
-        
+        }
         sc.close();
     }
-    
-    
 }
